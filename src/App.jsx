@@ -102,7 +102,9 @@ function App() {
         <div className="text-gray-600 text-sm tracking-widest mb-4">ISTANBUL ASIA</div>
         <h1 className="text-xl font-bold uppercase mt-4">İş Başvuru Formu</h1>
         <div className="text-[10px] text-justify text-gray-500 mt-2 px-4 leading-relaxed">
-          6698 sayılı Kişisel Verilerin Korunması Kanunu uyarınca paylaştığınız bilgiler gizli tutulacaktır... (Özet Metin)
+          <strong>KİŞİSEL VERİLERİN KORUNMASI KANUNUNA İSTİNADEN İŞ MÜRACATINDA BULUNAN ÇALIŞAN ADAYLARINA YÖNELİK BİLGİLENDİRME METNİ</strong><br/>
+      Başvuru Formunda belirtilen tüm bilgilerin sizin kişisel bilgilerinizdir. Geçmiş tecrübeleriniz hakkında bilgi sahibi olabilmek ve sizi daha iyi tanıyabilmek amacıyla ekteki Kişisel bilgileriniz, sadece, iş müracaatınız kapsamında değerlendirilecek olup bu amaç dışında herhangi bir şekilde kullanılmayacak ve herhangi bir kurum veya kişi ile paylaşılmayacaktır.
+      6698 sayılı Kişisel Verilerin Korunması Kanunu, kişisel verilerin belirlenen amaç dışında başka bir şekilde kullanılmaması, korunması ve hukuka uygun olmayan bir şekilde paylaşılmamasını düzenlemektedir. Bu müraacatınızın sonucunda bağımsız olarak, ileride oluşabilecek pozisyon açıklarında değerlendirilmek üzere, bu "İş Başvuru Formu"nuz müracaat tarihini takip eden yılın başından başlamak üzere 2(iki) yıl boyunca muhafaza edilecek ve 2.yılın sonunda silinecek veya yok edilecektir.
         </div>
       </div>
 
@@ -131,7 +133,7 @@ function App() {
             label="Cinsiyetiniz" 
             name="gender" 
             value={formData.gender}
-            options={[{label: 'Kadın', value: 'Kadin'}, {label: 'Erkek', value: 'Erkek'}]}
+            options={[{label: 'Kadın', value: 'Kadın'}, {label: 'Erkek', value: 'Erkek'}]}
             onChange={handleChange}
           />
           <RadioGroup 
@@ -160,7 +162,7 @@ function App() {
           <Input label="Babanızın Adı ve Mesleği" name="fatherNameJob" value={formData.fatherNameJob} onChange={handleChange} />
         </div>
         
-        <Input label="Çocukların varsa, sayıları ve yaşları" name="childrenInfo" value={formData.childrenInfo} onChange={handleChange} />
+        <Input label="Çocuklarınız varsa, sayıları ve yaşları" name="childrenInfo" value={formData.childrenInfo} onChange={handleChange} />
         <Input label="Sürekli Ev Adresiniz" name="address" value={formData.address} onChange={handleChange} />
 
         <div className="grid grid-3">
@@ -176,20 +178,20 @@ function App() {
         
         <div className="mb-6">
           <p className="text-sm font-medium mb-2">Askerlik Durumunuz</p>
-          <div className="grid grid-2 gap-4">
-            <div>
+          <div className=" grid grid-2 gap-4">
+            <div className='flex-col md:flex-row'>
               <RadioGroup 
                 name="militaryStatus" 
                 value={formData.militaryStatus}
                 options={[
-                  {label: 'Tamamlandı/Terhis', value: 'Tamamlandi'},
+                  {label: 'Tamamlandı/Terhis', value: 'Tamamlandı'},
                   {label: 'Tecilli', value: 'Tecilli'},
                   {label: 'Muaf', value: 'Muaf'}
                 ]}
                 onChange={handleChange}
               />
             </div>
-            {formData.militaryStatus === 'Tamamlandi' && <Input label="Terhis Tarihi/Yeri" name="militaryDate" onChange={handleChange} />}
+            {formData.militaryStatus === 'Tamamlandı' && <Input label="Terhis Tarihi/Yeri" name="militaryDate" onChange={handleChange} />}
             {formData.militaryStatus === 'Tecilli' && <Input label="Tecil Süresi" name="militaryDate" onChange={handleChange} />}
             {formData.militaryStatus === 'Muaf' && <Input label="Muafiyet Nedeni" name="militaryExemptReason" onChange={handleChange} />}
           </div>
@@ -201,7 +203,7 @@ function App() {
             <RadioGroup 
               name="criminalRecord" 
               value={formData.criminalRecord}
-              options={[{label: 'Hayır', value: 'Hayir'}, {label: 'Evet', value: 'Evet'}]}
+              options={[{label: 'Hayır', value: 'Hayır'}, {label: 'Evet', value: 'Evet'}]}
               onChange={handleChange}
             />
             {formData.criminalRecord === 'Evet' && (
@@ -216,7 +218,7 @@ function App() {
             <RadioGroup 
               name="healthProblem" 
               value={formData.healthProblem}
-              options={[{label: 'Hayır', value: 'Hayir'}, {label: 'Evet', value: 'Evet'}]}
+              options={[{label: 'Hayır', value: 'Hayır'}, {label: 'Evet', value: 'Evet'}]}
               onChange={handleChange}
             />
             {formData.healthProblem === 'Evet' && (
@@ -225,7 +227,8 @@ function App() {
           </div>
         </div>
 
-        {/* Connection Test */}
+      {/*         
+        ----Connection Test
         <div className="mt-8 p-4 bg-gray-50 border rounded-lg flex items-center justify-between">
           <div>
             <p className="text-sm font-semibold">Bağlantı Durumu</p>
@@ -248,9 +251,9 @@ function App() {
              connectionStatus === 'error' ? 'Bağlantı Hatası' : 'Bağlantıyı Test Et'}
           </button>
         </div>
+         */}
 
         {/* Action Buttons */}
-
         <div className="flex flex-col sm:flex-row justify-center gap-4 mt-12 border-t pt-8">
           <button type="button" onClick={handlePdfDownload} className="btn-primary flex items-center justify-center bg-gray-600">
             <Download size={18} className="mr-2" /> PDF Taslağını İndir
@@ -272,7 +275,7 @@ function App() {
       </form>
 
       <div className="text-center text-[10px] text-gray-400 mt-12">
-        © Marriott Istanbul Asia - Digital Employment Form v1.0
+        © Marriott Istanbul Asia - Digital Employment Form v1.0 - TheAloneWolf
       </div>
     </div>
   );
