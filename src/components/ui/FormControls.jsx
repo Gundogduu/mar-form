@@ -32,7 +32,7 @@ const Checkbox = ({ label, name, checked, onChange }) => (
 const RadioGroup = ({ label, name, options, value, onChange }) => (
   <div className="mb-4">
     <p className="text-sm font-medium mb-2">{label}</p>
-    <div className="flex space-x-4">
+    <div className="flex" style={{ gap: '30px' }}>
       {options.map((opt) => (
         <label key={opt.value} className="flex items-center space-x-2 cursor-pointer">
           <input
