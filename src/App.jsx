@@ -275,7 +275,7 @@ function App() {
       </form>
 
       <div className="text-center text-[10px] text-gray-400 mt-12">
-        © Marriott Istanbul Asia - Digital Employment Form v1.0
+        © Marriott Istanbul Asia - Digital Employment Form v1 Demo
       </div>
     </div>
   );
